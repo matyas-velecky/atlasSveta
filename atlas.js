@@ -39,9 +39,9 @@ function loadCountries(region) {
                     `;
                     modalBody.innerHTML = `
                         <p><img class="border" src=" ${country.flags.png}" alt="Vlajka ${country.name.common}"<p>
-                        <p><b>${country.name.official}</b> je stát, jehož hlavní město je <b>${country.capital[0]}/b>.<br>
-                            <b>${country.name.official}</b> používá měnu jménem <b>${country.currency}</b>.<br>
-                            Jazykem tohoto státu je <b>${country.lang}</b>.
+                        <p><b>${country.name.translations.ces.common}</b> je stát, jehož hlavní město je <b>${country.capital[0]}/b>.<br>
+                            <b>${country.name.translations.ces.common}</b> používá měnu jménem <b>${country.currencies[0].name}</b>.<br>
+                            Jazykem tohoto státu je <b>${country.languages[0]}</b>.
                         <p>
                         
                         
