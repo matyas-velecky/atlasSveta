@@ -37,14 +37,19 @@ function loadCountries(region) {
                     modalHeader.innerHTML = `
                         <h4>${country.translations.ces.common}</h4>
                     `;
+                    const countryNameCz = country.translations?.ces?.common || country.name.common;
+                    const capital = country.capital?.[0] || "—";
+                    const currencyCode = country.currencies ? Object.keys(country.currencies)[0] : null;
+                    const languageCode = country.languages ? Object.keys(country.languages)[0] : null;
+                    const currency = currencyCode ? new Intl.DisplayNames(["cs"], { type: "currency" }).of(currencyCode) || "—" : "—";
+                    const language = languageCode ? new Intl.DisplayNames(["cs"], { type: "language" }).of(languageCode) || "—" : "—";
+
                     modalBody.innerHTML = `
-                        <p><img class="border" src=" ${country.flags.png}" alt="Vlajka ${country.name.common}"<p>
-                        <p><b>${country.name.translations.ces.common}</b> je stát, jehož hlavní město je <b>${country.capital[0]}</b>.<br>
-                            <b>${country.name.translations.ces.common}</b> používá měnu jménem <b>${country.currencies[0].name}</b>.<br>
-                            Jazykem tohoto státu je <b>${country.languages[0]}</b>.
-                        <p>
-                        
-                        
+                        <p><img class="border" src="${country.flags.png}" alt="Vlajka ${country.name.common}"></p>
+                        <p><b>${countryNameCz}</b> je stát, jehož hlavní město je <b>${capital}</b>.<br>
+                            <b>${countryNameCz}</b> používá měnu jménem <b>${currency}</b>.<br>
+                            Jazykem tohoto státu je <b>${language}</b>.
+                        </p>
                     `;
                 })
                 .catch(error => {
